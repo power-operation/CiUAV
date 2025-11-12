@@ -33,6 +33,7 @@ def train_model(args):
                 loss = nn.MSELoss()(y_hat, y)
             optimizer.zero_grad()
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
             total_loss += loss.item()
         print(f'Epoch {epoch+1}, Train Loss: {total_loss / len(train_loader)}')

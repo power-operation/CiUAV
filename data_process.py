@@ -32,6 +32,7 @@ def dac_compensation(Ho, agc_gain_db=20.0):
     var_ho = torch.var(Ho, dim=-1, keepdim=True)
     mean_pow = torch.mean(Ho ** 2, dim=-1, keepdim=True)
     gamma = 1 - var_ho / (mean_pow + 1e-8)
+    gamma = torch.clamp(gamma, min=0.0, max=1.0)
     H_hat = gamma * Ho / rho
     return H_hat
 

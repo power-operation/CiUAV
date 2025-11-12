@@ -13,7 +13,7 @@ def main():
     parser.add_argument('--data_dir', type=str, default='dataset', help='Data directory')
     parser.add_argument('--epochs', type=int, default=400, help='Number of epochs')
     parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
-    parser.add_argument('--lr', type=float, default=0.01, help='Learning rate')
+    parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
     parser.add_argument('--lambda_s', type=float, default=1.0, help='Lambda for sensor regularization')
     parser.add_argument('--lambda_v', type=float, default=1.0, help='Lambda for sample regularization')
     args = parser.parse_args()
